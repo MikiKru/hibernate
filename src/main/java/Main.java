@@ -9,6 +9,10 @@ public class Main {
         // rejestracja User
 //        userController.addUser("mk@mk.pl","mk", RoleEnum.ROLE_USER, true, LocalDate.now(), "XXX");
         // rejestracja User1
-        userController.addUser1("mk@mk.pl", "mk");
+//        userController.addUser1("mk@mk.pl", "mk");
+//        userController.addPostByUser("X","X",1);
+//        userController.addPostByUser("X1","X1",1);
+//        userController.addPostByUser("X2","X2",1);
+        System.out.println(userController.getUserById(1));
     }
 }

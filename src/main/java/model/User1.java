@@ -103,4 +103,18 @@ public class User1 {
     public void setPosts(List<Post1> posts) {
         this.posts = posts;
     }
+
+    @Override
+    public String toString() {
+        return "User1{" +
+                "id_u=" + id_u +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", roles=" + roles +
+                ", enable=" + enable +
+                ", date_added=" + date_added +
+                ", secrete_code='" + secrete_code + '\'' +
+                ", posts=" + posts +
+                '}';
+    }
 }
