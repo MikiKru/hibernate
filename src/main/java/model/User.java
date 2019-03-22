@@ -12,20 +12,36 @@ public class User {
     @Column(unique = true)
     private String email;
     private String password;
-    private String role;
+    @Enumerated
+    private RoleEnum role;                          // umożliwia przypisanie nazw ról zgdonie z RoleEnum
     private boolean enable;
     private LocalDate date_added = LocalDate.now();
     @Transient                                      // adnotacja wyłączająca pole przy mapowaniu
     private String secrete_code;
 
-    public User(String email, String password, String role, boolean enable, LocalDate date_added) {
+    public User() {
+    }
+
+    public User(String email, String password, RoleEnum role, boolean enable, LocalDate date_added, String secrete_code) {
         this.email = email;
         this.password = password;
         this.role = role;
         this.enable = enable;
         this.date_added = date_added;
+        this.secrete_code = secrete_code;
     }
-    public User() {
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id_u=" + id_u +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", role=" + role +
+                ", enable=" + enable +
+                ", date_added=" + date_added +
+                ", secrete_code='" + secrete_code + '\'' +
+                '}';
     }
 
     public int getId_u() {
@@ -52,11 +68,11 @@ public class User {
         this.password = password;
     }
 
-    public String getRole() {
+    public RoleEnum getRole() {
         return role;
     }
 
-    public void setRole(String role) {
+    public void setRole(RoleEnum role) {
         this.role = role;
     }
 
@@ -74,5 +90,13 @@ public class User {
 
     public void setDate_added(LocalDate date_added) {
         this.date_added = date_added;
+    }
+
+    public String getSecrete_code() {
+        return secrete_code;
+    }
+
+    public void setSecrete_code(String secrete_code) {
+        this.secrete_code = secrete_code;
     }
 }
