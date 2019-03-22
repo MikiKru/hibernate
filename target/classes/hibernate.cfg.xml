@@ -11,7 +11,7 @@
         <property name="format_sql">false</property>
         <property name="show_sql">true</property>
         <!-- none, validate, create, update, create-drop -->
-        <property name="hibernate.hbm2ddl.auto">create-drop</property>
+        <property name="hibernate.hbm2ddl.auto">update</property>
         <!-- mapowanie encji na tabela i tabel na encje -->
         <mapping class="model.User"/>
         <mapping class="model.User1"/>
