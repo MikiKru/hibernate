@@ -76,5 +76,34 @@ public class UserController {
         transaction.commit();
         session.close();
     }
+    public Post1 getPostById(int id){
+        Session session = HibernateConfiguration.getSessionFactory().openSession();
+        Transaction transaction = session.beginTransaction();
+        // zapytanie typu SELECT
+        Query query = session.createQuery("SELECT p FROM Post1 p WHERE p.id_p=:id");
+        query.setInteger("id", id);
+        query.setMaxResults(1);
+        Post1 post = (Post1) query.uniqueResult();
+        transaction.commit();
+        session.close();
+        return post;
+    }
     // serwis do usuwania posta po id
+    public void deletePostById(int id_p){
+        Session session = HibernateConfiguration.getSessionFactory().openSession();
+        Transaction transaction = session.beginTransaction();
+        session.delete(getPostById(id_p));
+        transaction.commit();
+        session.close();
+    }
+    // serwis do modyfikacji tytułu posta
+    public void updatePostTitleByPostId(int id_p, String newTitle){
+        Session session = HibernateConfiguration.getSessionFactory().openSession();
+        Transaction transaction = session.beginTransaction();
+        Post1 post1 = getPostById(id_p);
+        post1.setTitle(newTitle);
+        session.saveOrUpdate(post1);
+        transaction.commit();
+        session.close();
+    }
 }
