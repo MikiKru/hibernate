@@ -3,7 +3,7 @@ package model;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 @Entity                                             // adnotacja tworząca tabelkę user w DB
 public class User1 {
@@ -20,11 +20,13 @@ public class User1 {
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(name = "user1_role1")
     Set<Role1> roles = new HashSet<>();             // użytkownik może mieć wiele ról
-
     private boolean enable;
     private LocalDate date_added = LocalDate.now();
     @Transient                                      // adnotacja wyłączająca pole przy mapowaniu
     private String secrete_code;
+                                                    // relacja 1 : n
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "user1")
+    List<Post1> posts = new ArrayList<>();
 
     public User1() {
     }

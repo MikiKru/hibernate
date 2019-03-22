@@ -16,5 +16,6 @@
         <mapping class="model.User"/>
         <mapping class="model.User1"/>
         <mapping class="model.Role1"/>
+        <mapping class="model.Post1"/>
     </session-factory>
 </hibernate-configuration>
