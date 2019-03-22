@@ -14,5 +14,7 @@
         <property name="hibernate.hbm2ddl.auto">create-drop</property>
         <!-- mapowanie encji na tabela i tabel na encje -->
         <mapping class="model.User"/>
+        <mapping class="model.User1"/>
+        <mapping class="model.Role1"/>
     </session-factory>
 </hibernate-configuration>
